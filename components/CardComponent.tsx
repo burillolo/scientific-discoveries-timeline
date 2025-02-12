@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Save } from "@/components/icons/save"
 
-const plane = "plane.png";
 const chat = "chat.svg";
 
 type CardProps = {
