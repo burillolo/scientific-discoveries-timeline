@@ -2,22 +2,31 @@ import Hero from "@/components/Hero";
 import CardComponent from "@/components/CardComponent";
 import Navbar from "@/components/Navbar";
 
-const image_avatar = "scratchmascot.png";
-const image_post = "ford.jpg";
+import { default as descubrimientos } from './data/descubrimientos';
+
+const image_avatar = "avatar-nebrija.png";
+const image_post_crispr = "crispr.jpg";
+const image_post_davinci = "davinci.webp";
+const image_post_llm = "ia.png";
+const image_post_ondas = "ondas.jpg";
+const image_post_auto = "ford.jpg";
 
 interface InfoDescubrimientos  {
-  title: string,
-  description: string,
-  image: string,
+  descubrimiento: string,
+  titulo: string,
+  descripcion: string,
+  imagen: string,
   avatar: string
 }
 
-const descubrimientos: InfoDescubrimientos[] = [
-  {title: "Descubrimiento 1", description: "Un nuevo avance en la biotecnología.", image: image_post, avatar: image_avatar},
-  {title: "Descubrimiento 2", description: "Un hallazgo espacial revolucionario.", image: image_post, avatar: image_avatar},
-  {title: "Descubrimiento 3", description: "Innovaciones en inteligencia artificial.", image: image_post, avatar: image_avatar},
-  {title: "Descubrimiento 4", description: "Una nueva esperanza en medicina", image: image_post, avatar: image_avatar},
-  {title: "Descubrimiento 5", description: "La última novedad en transporte", image: image_post, avatar: image_avatar},
+const { crisp, ondas, llms, davinci, automovil } = descubrimientos;
+
+const posts: InfoDescubrimientos[] = [
+  {descubrimiento: "Edición genética: CRISPR-Cas9", titulo: "Un nuevo avance en la biotecnología", descripcion: crisp, imagen: image_post_crispr, avatar: image_avatar},
+  {descubrimiento: "Detección de ondas gravitacionales", titulo: "Un hallazgo espacial revolucionario", descripcion: ondas, imagen: image_post_ondas, avatar: image_avatar},
+  {descubrimiento: "Modelos lenguajes basados en transformadores (LLMs)", titulo: "Innovaciones en inteligencia artificial", descripcion: llms, imagen: image_post_llm, avatar: image_avatar},
+  {descubrimiento: "El robot da Vinci ", titulo: "Una nueva esperanza en medicina", descripcion: davinci, imagen: image_post_davinci, avatar: image_avatar},
+  {descubrimiento: "El automóvil", titulo: "El hito que cambió la forma de conocer el transporte", descripcion: automovil, imagen: image_post_auto, avatar: image_avatar},
 ];
 
 export default function Home() {
@@ -26,8 +35,8 @@ export default function Home() {
       <Hero />
       <Navbar />
       <div className="flex flex-col gap-6 mt-10 items-center">
-        {descubrimientos.map((descubrimiento, index) => (
-          <CardComponent key={index} title={descubrimiento.title} imageUrl={descubrimiento.image} avatarUrl={descubrimiento.avatar} description={descubrimiento.description}/>
+        {posts.map(({descubrimiento, titulo, imagen, avatar, descripcion}, index) => (
+          <CardComponent key={index} cabecera={descubrimiento} titulo={titulo} imageUrl={imagen} avatarUrl={avatar} descripcion={descripcion}/>
         ))}
       </div>
     </div>

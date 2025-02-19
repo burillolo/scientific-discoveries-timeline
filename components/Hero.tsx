@@ -1,7 +1,7 @@
 
 const Hero: React.FC = () => (
     <div className="flex flex-cols">
-        <img src="logo.png" width={"170px"} className="bg-[#BDB7C5] "/>
+        <img src="logo.png" width={"170px"}/>
         <div
             className="p-10 text-center text-white grow"
 
